@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/TYFSADIK/defence-hardware-program/interfaces/detection.schema.json",
+  "title": "Signed detection (program-wide)",
+  "description": "Every sensor node emits this to the multi-domain COP. Signature: Ed25519 over canonical JSON of body (sorted keys, no spaces).",
+  "type": "object",
+  "required": ["body", "sig"],
+  "properties": {
+    "sig": {"type": "string", "pattern": "^[0-9a-f]{128}$"},
+    "body": {
+      "type": "object",
+      "required": ["node", "seq", "t", "domain", "kind", "e", "n", "sigma_m", "conf"],
+      "properties": {
+        "node": {"type": "string"},
+        "seq": {"type": "integer", "minimum": 0},
+        "t": {"type": "number", "description": "UTC seconds, PPS-disciplined node clock"},
+        "domain": {"enum": ["air", "water", "ground"]},
+        "kind": {"type": "string", "examples": ["uav", "aircraft", "vessel", "vehicle", "footsteps", "person"]},
+        "e": {"type": "number", "description": "site ENU east, metres"},
+        "n": {"type": "number", "description": "site ENU north, metres"},
+        "sigma_m": {"type": "number", "exclusiveMinimum": 0},
+        "conf": {"type": "number", "minimum": 0, "maximum": 1},
+        "replayed": {"type": "boolean", "default": false},
+        "extra": {"type": "object"}
+      },
+      "additionalProperties": false
+    }
+  }
+}
