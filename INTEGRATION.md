@@ -114,7 +114,7 @@ Rotating a node: generate a new key on the node, update the registry, revoke the
 | Node | Supply | Budget note |
 |---|---|---|
 | Broker Pi, sky mini PC | mains + small UPS | graceful shutdown on UPS low (`nut`) |
-| Acoustic / water / seismic gateway | official 27 W supply, or 12 V LiFePO4 + 30–50 W solar + MPPT + 5.1 V buck | size for **grey Canadian weeks**: 3 days with no sun |
+| Acoustic / water / seismic gateway | official 27 W supply, or 12 V LiFePO4 + 30-50 W solar + MPPT + 5.1 V buck | size for **grey Canadian weeks**: 3 days with no sun |
 | Seismic ESP32 nodes | 18650 + small panel + charge board | deep sleep when quiet |
 | Rovers | Li-ion + BMS, **split motor and logic rails**, e-stop on the motor rail | |
 | Drone | 4S LiPo, separate 5 V/5 A BEC for the Pi | never power the Pi from the FC USB |
